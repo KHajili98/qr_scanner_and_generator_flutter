@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'qr_example.dart';
 import 'qrview.dart';
 
 void main() => runApp(MyApp());
@@ -37,6 +38,25 @@ class HomePage extends StatelessWidget {
               },
               child: Text(
                 'Scan',
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          SizedBox(
+            height: 45,
+            width: 120,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (ccontext1) => QrCodeExamplePage()));
+              },
+              child: Text(
+                'Qr Code',
                 style: TextStyle(fontSize: 18),
               ),
             ),
