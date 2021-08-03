@@ -10,12 +10,27 @@ class QrCodeExamplePage extends StatelessWidget {
       body: Container(
         child: Center(
           child: QrImage(
-            backgroundColor: Colors.redAccent,
-            eyeStyle:
-                QrEyeStyle(color: Colors.black54, eyeShape: QrEyeShape.square),
+            backgroundColor: Colors.black12,
+            eyeStyle: QrEyeStyle(
+                color: Colors.black54,
+                eyeShape:
+                    QrEyeShape.square), //kenardaki boyuk kvadratlarin formasidi
+            dataModuleStyle: QrDataModuleStyle(
+                //noqtelerin formasidi
+                color: Colors.blueGrey,
+                dataModuleShape: QrDataModuleShape.square),
             data: "{'salam':'asdadsa'}",
             version: QrVersions.auto,
-            size: 200.0,
+            size: 300.0,
+            padding: EdgeInsets.all(30),
+            foregroundColor: Colors.red, // esas oz rengi
+            gapless: false, // balaca noqteler arasinda serhed xetler qoyur
+            embeddedImage: NetworkImage(
+              "https://i.pinimg.com/736x/d6/5e/cc/d65ecc1e6feccc99d7512de99794022b.jpg",
+            ),
+            embeddedImageStyle: QrEmbeddedImageStyle(
+              size: Size(20, 20),
+            ),
           ),
         ),
       ),
