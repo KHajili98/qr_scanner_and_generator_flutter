@@ -40,6 +40,12 @@ class _QRViewExampleState extends State<QRViewExample> {
           if (value)
             Expanded(
               child: QRView(
+                overlay: QrScannerOverlayShape(
+                    borderColor: Colors.red,
+                    borderRadius: 10,
+                    borderWidth: 20,
+                    borderLength: 10,
+                    overlayColor: Colors.black38),
                 key: qrKey,
                 onQRViewCreated: _onQRViewCreated,
               ),
@@ -83,9 +89,6 @@ class _QRViewExampleState extends State<QRViewExample> {
   void _onQRViewCreated(QRViewController controller) {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
-      if (scanData != null) {
-        controller.pauseCamera();
-      }
       setState(() {
         value = false;
         result = scanData;
